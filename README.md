@@ -9,10 +9,10 @@ O objetivo deste projeto é estudar a previsão de readmissão hospitalar em men
 
 * Medicamentos e procedimentos: com foco na quantidade de exames laboratoriais realizados durante a internação e nas alterações de dosagem de medicamentos cruciais, especialmente a insulina.
 
-###💡 Principais Hipóteses
+### 💡 Principais Hipóteses
 Nossas principais hipóteses se alinham com nosso interesse em modelar o retorno da hospitalização de portadores de diabetes, procurando observar os principais fatores que impactam nesse comportamento. A partir dessa premissa, desejamos observar diferentes comportamentos de subgrupos, verificar a correlação de atributos clínicos e construir modelos preditivos e explicativos para a tendência de retorno de internação.
 
-###📊 Dataset e Detalhamento das Features
+### 📊 Dataset e Detalhamento das Features
 🔗 [Diabetes 130 US hospitals for years 1999-2008](https://www.kaggle.com/datasets/brandao/diabetes/data) - 101766 linhas x 47 colunas
 
 O conjunto de dados representa 10 anos (1999-2008) de atendimento clínico em 130 hospitais e redes integradas de saúde dos EUA. Inclui mais de 47 características que representam os desfechos dos pacientes e dos hospitais. As informações foram extraídas do banco de dados para atendimentos que atendiam aos seguintes critérios:
@@ -31,7 +31,7 @@ Os dados contêm atributos como número do paciente, raça, sexo, idade, tipo de
 
 Os dados estão baixados neste repositório em /data/diabetic_data.csv e o mapeamento das colunas em /data/IDS_mapping.csv. Dentro do .csv constam todas as 101766 observações de diferentes pacientes que seguem os critérios definidos acima.
 
-#👥 Membros da Equipe e Papéis
+# 👥 Membros da Equipe e Papéis
 (Observação: Adicionar o 4º membro para cumprir o requisito da disciplina)
 
 Gabriel Guimarães dos Santos Ricardo: [1] Analista de Dados / [2] Cientista de Dados (Aplicação e interpretação de modelos / criação de dashboard)
@@ -40,20 +40,18 @@ Enzo de Souza Braz: [1] Engenheiro de Dados / [2] Cientista de Dados (tratamento
 
 Eduardo Birchal: Cientista de Dados (modelagem exploratória)
 
-#🛠️ Pilha de Tecnologias
+# 🛠️ Pilha de Tecnologias
 As tecnologias previstas para o MVP são:
 
-💻 Ambiente e Gestão
+## 💻 Ambiente e Gestão
 
 Máquinas Próprias: (Máquina menos potente: Intel i7, 16GB de RAM, Placa de vídeo MX110).
 
-GitHub: Obrigatório para hospedar o repositório, versionar o código e gerenciar o Backlog (Projects).
-
-🐍 Linguagem
+## 🐍 Linguagem
 
 Python: 3.12+
 
-📚 Bibliotecas (Versões atualizadas)
+## 📚 Bibliotecas (Versões atualizadas)
 
 Pandas (3.0.1): Para a manipulação dos dados.
 
