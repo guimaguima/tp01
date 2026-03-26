@@ -1,4 +1,5 @@
-#🏥 Previsão de Readmissão Hospitalar para Pacientes Diabéticos
+# Previsão de Readmissão Hospitalar para Pacientes Diabéticos
+
 ## 🎯 Objetivos e Principais Features
 O objetivo deste projeto é estudar a previsão de readmissão hospitalar em menos de 30 dias para pacientes diabéticos, com base em seus registros clínicos e histórico de tratamentos. Essa proposta vem com a intenção de observar quais comorbidades, intervenções e mudanças na medicação mais agravam o risco de retorno ao hospital, bem como estruturar a melhor modelagem para prever tal evento. Para isso, torna-se crucial analisar as relações complexas entre as variáveis, avaliar a incerteza e a variância dos estimadores, e construir um pipeline de limpeza utilizando Pandas e Scikit-learn que garanta um tratamento de dados matematicamente sólido ao longo deste mês. Os principais tipos de features envolvidas no processo são:
 
