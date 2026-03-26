@@ -16,7 +16,7 @@ Nossas principais hipóteses se alinham com nosso interesse em modelar o retorno
 
 ## Dataset
 
-[Diabetes 130 US hospitals for years 1999-2008]([https://www.kaggle.com/datasets/brandao/diabetes/data](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008)) - 3 MB
+[Diabetes 130 US hospitals for years 1999-2008](https://www.kaggle.com/datasets/brandao/diabetes/data](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008) - 101766 linhas x 47 colunas
 
 O conjunto de dados representa 10 anos (1999-2008) de atendimento clínico em 130 hospitais e redes integradas de saúde dos EUA. Inclui mais de 50 características que representam os desfechos dos pacientes e dos hospitais. As informações foram extraídas do banco de dados para atendimentos que atendiam aos seguintes critérios:
 
@@ -26,7 +26,7 @@ O conjunto de dados representa 10 anos (1999-2008) de atendimento clínico em 13
 *   Foram realizados exames laboratoriais durante o atendimento.
 *   Foram administrados medicamentos durante o atendimento.
 
-Os dados contêm atributos como número do paciente, raça, sexo, idade, tipo de admissão, tempo de internação, especialidade médica do médico responsável pela admissão, número de exames laboratoriais realizados, resultado do teste de HbA1c, diagnóstico, número de medicamentos, medicamentos para diabetes, número de consultas ambulatoriais, internações e visitas ao pronto-socorro no ano anterior à hospitalização, etc. (50 features)
+Os dados contêm atributos como número do paciente, raça, sexo, idade, tipo de admissão, tempo de internação, especialidade médica do médico responsável pela admissão, número de exames laboratoriais realizados, resultado do teste de HbA1c, diagnóstico, número de medicamentos, medicamentos para diabetes, número de consultas ambulatoriais, internações e visitas ao pronto-socorro no ano anterior à hospitalização, etc. (47 features)
 
 Os dados estão baixados neste repositório em /data/diabetic_data.csv e o mapeamento das colunas em /data/IDS_mapping.csv.
 
