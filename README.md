@@ -32,13 +32,12 @@ Os dados contêm atributos como número do paciente, raça, sexo, idade, tipo de
 Os dados estão baixados neste repositório em /data/diabetic_data.csv e o mapeamento das colunas em /data/IDS_mapping.csv. Dentro do .csv constam todas as 101766 observações de diferentes pacientes que seguem os critérios definidos acima.
 
 # 👥 Membros da Equipe e Papéis
-(Observação: Adicionar o 4º membro para cumprir o requisito da disciplina)
 
 Gabriel Guimarães dos Santos Ricardo: [1] Analista de Dados / [2] Cientista de Dados (Aplicação e interpretação de modelos / criação de dashboard)
 
 Enzo de Souza Braz: [1] Engenheiro de Dados / [2] Cientista de Dados (tratamento e limpeza dos dados / análise exploratória e clusterização)
 
-Eduardo Birchal: Cientista de Dados (modelagem exploratória)
+Eduardo Birchal: Cientista de Dados (modelagem exploratória e criação de modelos)
 
 # 🛠️ Pilha de Tecnologias
 As tecnologias previstas para o MVP são:
