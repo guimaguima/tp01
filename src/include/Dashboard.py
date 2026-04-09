@@ -32,10 +32,9 @@ class Dashboard:
     def render_sidebar(self):
         st.sidebar.header("Dashboard Controls")
         st.sidebar.info(f"Total Patients Analyzed: {len(self.df)}")
-        # Add future filters here (e.g., multiselect for gender, age)
 
     def render_main_content(self):
-        st.title("🏥 Diabetes Readmission Analysis EDA")
+        st.title("Diabetics Readmission - Readmission main stats")
         st.markdown("---")
         
         if not self.plots:
