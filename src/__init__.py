@@ -7,17 +7,19 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from abc import ABC, abstractmethod
 from include.Dashboard import Dashboard
-from include.Plot import ReadmissionDistributionPlot,TimeInHospitalVsReadmissionPlot
+from include.Plot import AssociationRulesPlot, ReadmissionDistributionPlot,TimeInHospitalVsReadmissionPlot
 
 
 if __name__ == "__main__":
-    # Define the path to your data file
-    DATA_PATH = "../data/raw/diabetic_data.csv" # Update this to your actual path
+    DATA_PATH = "../data/raw/diabetic_data.csv" 
     
-    # Initialize Dashboard
     app = Dashboard(DATA_PATH)
     
-    app.add_plot(ReadmissionDistributionPlot)
-    app.add_plot(TimeInHospitalVsReadmissionPlot)
+    # Adiciona na página 1 (EDA)
+    app.add_eda_plot(ReadmissionDistributionPlot)
+    app.add_eda_plot(TimeInHospitalVsReadmissionPlot)
+    
+    # Adiciona na página 2 (Mineração)
+    app.add_pattern_plot(AssociationRulesPlot)
     
     app.run()

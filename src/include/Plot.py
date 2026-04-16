@@ -2,6 +2,8 @@ import streamlit as st
 import altair as alt
 import pandas as pd
 from abc import ABC, abstractmethod
+from include.PatternMiner import PatternMiner
+  
 
 class Plot(ABC):
     """
@@ -13,7 +15,7 @@ class Plot(ABC):
 
     @abstractmethod
     def generate_chart(self) -> alt.Chart:
-        """
+        """s
         Builds and returns the Altair Chart object.
         Must be implemented by subclasses.
         """
@@ -51,3 +53,60 @@ class TimeInHospitalVsReadmissionPlot(Plot):
             height=400
         )
         return chart
+
+class AssociationRulesPlot(Plot):
+    def generate_chart(self) -> alt.Chart:
+        pass
+    
+    def render(self):
+        # controles organizados em 3 colunas para ficar elegante
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            targets = ["readmitted_NO", "readmitted_<30", "readmitted_>30"]
+            selected_target = st.selectbox("Readmission (Consequent):", targets)
+        with col2:
+            min_sup = st.slider("Minimum Probability", 0.01, 0.20, 0.05, 0.01)
+        with col3:
+            min_conf = st.slider("Minimum Conditional Probability", 0.01, 0.50, 0.05, 0.01)
+        
+        csv_path = "../data/processed/rules_association.csv"
+        
+        with st.spinner("Loading patterns..."):
+            miner = self.get_pattern_miner(csv_path)
+            
+        if not miner:
+            st.error(f"File not found at: {csv_path}. Please check the path.")
+            return
+
+        df_rules = miner.filter_patterns(column=selected_target, min_support=min_sup, min_confidence=min_conf, top_n=5)
+        
+        if df_rules.empty:
+            st.warning(f"No strong rules found for {selected_target}. Try reducing the support or confidence.")
+            return
+
+        melted_rules = df_rules.melt(
+            id_vars=['antecedents_str'], 
+            value_vars=['confidence', 'lift', 'odds_ratio'],
+            var_name='Metric', 
+            value_name='Value'
+        )
+        
+        base_chart = alt.Chart(melted_rules).mark_bar().encode(
+            x=alt.X('Value:Q', title=None),
+            y=alt.Y('antecedents_str:N', title='', sort='-x', axis=alt.Axis(labelLimit=400)),
+            color=alt.Color('Metric:N', legend=None, scale=alt.Scale(scheme='set2')),
+            tooltip=['antecedents_str', 'Metric', 'Value']
+        ).properties(
+            height=150
+        )
+
+        faceted_chart = base_chart.facet(
+            row=alt.Row('Metric:N', title=None, header=alt.Header(labelFontSize=14, labelFontWeight='bold'))
+        ).resolve_scale(
+            x='independent' 
+        )
+
+        st.altair_chart(faceted_chart, use_container_width=True)
+        
+    def get_pattern_miner(self,csv_path: str):
+        return PatternMiner.from_csv(csv_path)
