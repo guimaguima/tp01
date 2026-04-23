@@ -55,6 +55,12 @@ class TimeInHospitalVsReadmissionPlot(Plot):
         return chart
 
 class AssociationRulesPlot(Plot):
+    
+    def __init__(self,data = None,csv_path: str="../data/processed/rules_association.csv"):  
+        self.csv_path = csv_path
+        self.pattern_miner = PatternMiner.from_csv(csv_path)
+        self.data = data
+    
     def generate_chart(self) -> alt.Chart:
         pass
     
@@ -71,14 +77,13 @@ class AssociationRulesPlot(Plot):
         
         csv_path = "../data/processed/rules_association.csv"
         
-        with st.spinner("Loading patterns..."):
-            miner = self.get_pattern_miner(csv_path)
+
             
-        if not miner:
+        if not self.pattern_miner:
             st.error(f"File not found at: {csv_path}. Please check the path.")
             return
 
-        df_rules = miner.filter_patterns(column=selected_target, min_support=min_sup, min_confidence=min_conf, top_n=5)
+        df_rules = self.pattern_miner.filter_patterns(column=selected_target, min_support=min_sup, min_confidence=min_conf, top_n=5)
         
         if df_rules.empty:
             st.warning(f"No strong rules found for {selected_target}. Try reducing the support or confidence.")
@@ -107,6 +112,3 @@ class AssociationRulesPlot(Plot):
         )
 
         st.altair_chart(faceted_chart, use_container_width=True)
-        
-    def get_pattern_miner(self,csv_path: str):
-        return PatternMiner.from_csv(csv_path)

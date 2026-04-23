@@ -8,19 +8,20 @@ class Dashboard:
     
     def __init__(self, raw_data_path: str):
         self.raw_data_path = raw_data_path
+        df_raw = pd.read_csv(self.raw_data_path)
+        self.loader = DiabeticDataLoader(df_raw)
+        
         self.df = self._load_and_prep_data()
+        
         self.eda_plots = []  
         self.pattern_plots = []
+        
         self.predictor = RandomForestPredictor()
+        
 
-    @st.cache_data 
-    def _load_and_prep_data(_self) -> pd.DataFrame:
-        df_raw = pd.read_csv(_self.raw_data_path)
-        
-        loader = DiabeticDataLoader(df_raw)
-        
-        df_clean = loader.get_clean_data() 
-        df_no_outliers = loader.get_no_outliers_data() 
+    def _load_and_prep_data(self) -> pd.DataFrame:        
+        df_clean = self.loader.get_clean_data() 
+        df_no_outliers = self.loader.get_no_outliers_data() 
         return df_no_outliers
 
     def add_eda_plot(self, plot_class: type[Plot]):
