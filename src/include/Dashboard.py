@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from include.DiabeticDataLoader import DiabeticDataLoader
 from include.Plot import Plot
-from include.Preditor import BasePredictor, MockPredictor
+from include.Preditor import BasePredictor, RandomForestPredictor
 
 class Dashboard:
     
@@ -11,7 +11,7 @@ class Dashboard:
         self.df = self._load_and_prep_data()
         self.eda_plots = []  
         self.pattern_plots = []
-        self.predictor = MockPredictor()
+        self.predictor = RandomForestPredictor()
 
     @st.cache_data 
     def _load_and_prep_data(_self) -> pd.DataFrame:

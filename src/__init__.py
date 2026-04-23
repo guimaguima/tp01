@@ -1,4 +1,4 @@
-
+import os
 import streamlit as st
 import altair as alt
 import numpy as np
@@ -11,7 +11,7 @@ from include.Plot import AssociationRulesPlot, ReadmissionDistributionPlot,TimeI
 
 
 if __name__ == "__main__":
-    DATA_PATH = "../data/raw/diabetic_data.csv" 
+    DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'raw', 'diabetic_data.csv')
     
     app = Dashboard(DATA_PATH)
     

@@ -84,9 +84,8 @@ class DiabeticDataLoader:
         # 6. Atualização de tipos para Categóricos
         categorical_cols = [
             'race', 'gender', 'age', 'admission_type_id', 'discharge_disposition_id',
-            'admission_source_id', 'medical_specialty',
-            'diag_1', 'diag_2', 'diag_3', 'max_glu_serum', 'A1Cresult',
-            'change', 'diabetesMed', 'readmitted'
+            'admission_source_id','diag_1', 'diag_2', 'diag_3', 'max_glu_serum', 
+            'A1Cresult', 'change', 'diabetesMed', 'readmitted'
         ]
         for col in categorical_cols:
             df[col] = df[col].fillna('Missing')
